@@ -60,6 +60,10 @@ function callFriend(name) {
 
 //Code Here
 
+let callJake = callFriend(`Jake`)
+callJake('435-555-9248')
+console.log(callJake('435-555-9248'))
+
 
 
 ////////// PROBLEM 3 //////////
@@ -70,14 +74,23 @@ function callFriend(name) {
 
 //Code Here
 
+function makeCounter(){
+  let counter = 0;
+
+  return function(){
+    counter ++;
+    return counter;
+  }
+}
+
 
 
 //Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -95,7 +108,19 @@ function callFriend(name) {
 function counterFactory(value) {
   // Code here.
 
+  // let count = 0;
+
   return {
+
+    inc: function(){
+      count ++
+      return count
+    }
+
+    dec: function(){
+      count --
+      return count
+    }
 
   };
 }
