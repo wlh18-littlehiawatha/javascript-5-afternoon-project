@@ -66,6 +66,23 @@ class Employee {
 
 //Code Here
 
+class Manager extends Employee {
+  constructor(first_name, last_name, email, age){
+    super(first_name, last_name, email, age)
+    this.reports = [ ];
+  };
+
+  hire(newEmployee){
+    this.reports.push(newEmployee)
+  };
+
+  fire(index){
+    this.reports.splice(index, 1)
+  };
+
+};
+
+
 
 
 
@@ -91,6 +108,33 @@ class Employee {
 */
 
 //Code Here
+
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age){
+    super(first_name, last_name, email, age)
+    this.title = `Not a manager`;
+    this.bonus = 0;
+  };
+
+  hire(newEmployee){
+    this.reports.push(newEmployee);
+    let rL = this.reports.length;
+
+     if(rL === 0){ this.title = 'Not a manager'};
+  if(rL >= 1 && rL <= 3) { this.title = 'Barely Manager' };
+  if(rL >= 4 && rL <= 10) {this.title = 'Mostly Manager'};
+  if(rL >= 11 && rL <= 50){ this.title =  'Manager'};
+  if(rL >= 51 && rL <=100){this.title = 'Manager Plus'};
+  if(rL >= 101){ this.title = 'Bestest Manager'};
+  
+  };
+
+  fire(index) {
+    this.reports.splice(index, 1)
+    this.bonus += 100
+  }
+
+}
 
 
 
@@ -118,5 +162,70 @@ class Employee {
 */
 
 //Code Here
+
+// class Machine {
+//   constructor(){
+//     this.widget_made_count = 0;
+//     this.wear_and_tear_count = 0;
+//     this.needs_reboot = false;
+//   }
+
+
+//   makeWidget = function
+
+
+
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ---------------- Solution for #4----------------------
+
+// class Machine {
+//   constructor(){
+//     this.widgets_made_count = 0;
+//     this.wear_and_tear_count = 0;
+//     this.needs_reboot = false;
+//   }
+
+//   makeWidgets = function(num){
+
+//     while (num >= 50){
+//       num -= 50;
+//       this.widgets_made_count += 50;
+//       this.wear_and_tear_count++;
+//     }
+//     if(num<50) this.widgets_made_count += num;
+//   };
+//   fixMachine = function () {
+//     this.needs_reboot = true;
+//   };
+
+//   reboot = function() {
+//     return (wear_and_tear_count, needs_reboot) => {
+//       this.wear_and_tear_count -=10;
+//       this.needs_reboot = false;
+//     };
+//   };
+
+// }
+
 
 
