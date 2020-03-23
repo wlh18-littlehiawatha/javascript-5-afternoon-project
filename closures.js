@@ -113,23 +113,25 @@ function counterFactory(value) {
   return {
 
     inc: function(){
-      count ++
-      return count
-    }
+      value ++;
+      return value;
+      
+    },
 
     dec: function(){
-      count --
-      return count
-    }
+      value --;
+      return value;
+
+    },
 
   };
 }
 
 counter = counterFactory(10);
-// counter.inc() // 11
-// counter.inc() // 12
-// counter.inc() // 13
-// counter.dec() // 12
+counter.inc() // 11
+counter.inc() // 12
+counter.inc() // 13
+counter.dec() // 12
 
 
 
@@ -146,8 +148,13 @@ function motivation( firstname, lastname ) {
 
   // code message function here.
 
+  function message(){
+    welcomeText += ` ${firstname} ${lastname}.`
+    return welcomeText
+  }
+
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
@@ -176,6 +183,11 @@ var module = (function() {
   // outside our lexical scope
   return {
     // Code here.
+
+    publicMethod: function(){
+      return privateMethod()
+    }
+
   };
 })();
 
@@ -195,6 +207,15 @@ function secretNumber() {
 
   return {
     // Code here
+    addToSecret: function(num){
+      secret += num
+      return secret
+    },
+
+    takeAwayFromSecret:function(num){
+      secret -= num
+      return secret
+    }
   };
 }
 
@@ -218,10 +239,35 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
-function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+                                    // // function timeOutCounter() {
+                                    // //   for (var i = 0; i <= 5; i++) {
+                                    //   e(i);
+                                    // }
+
+                                    // function e(num){
+
+                                      
+                                    //   //     setTimeout(function() {
+                                    //         /*console.log(*/num/*);*/
+                                    //   //     }, i * 1000);
+                                    //   //   
+                                    //         }
+                                    //   // }
+                                    //   // timeOutCounter();
+
+
+
+
+function timeOutCounter () {
+  for (var i = 0; i<= 5; i++) {
+    e(i);
+  }
+
+
+function e(num) {
+  
     setTimeout(function() {
-      console.log(i);
+      console.log(num);
     }, i * 1000);
   }
 }
